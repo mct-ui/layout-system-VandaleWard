@@ -345,12 +345,12 @@
             </div>
         </section>
         <section>
-            <header>
-                <div>
+            <article class="c-article">
+                <header class="c-article__header">
                     <h1>Example 6: blogpost design</h1>
-                </div>
-            </header>
-            <figure>
+                </header>
+            
+            <figure class="c-article__image">
                 <picture>
                     <source srcset="img/picture@2x.jpg" media="(min-width: 1200px)">
                     <source srcset="img/picture.jpg" media="(min-width: 992px)">
@@ -359,10 +359,11 @@
                     <img srcset="img/picture-square@2x.jpg" alt="Picture of girl reading on a tablet">
                 </picture>
             </figure>
-            <div class="o-row o-row--lg">
+
+            <div class="o-row o-row--lg c-article__body">
                 <div class="o-container">
                     <div class="o-layout o-layout--gutter">
-                        <div class="o-layout__item u-1-of-4-bp3">
+                        <div class="o-layout__item u-1-of-4-bp3 c-article__author">
                             <figure class="c-author u-mb-xl-bp2">
                                 <img class="c-author__image" src="img/avatar.jpg" alt="Simon Coudeville">
                                 <figcaption class="c-author__caption">
@@ -373,7 +374,7 @@
                                 </figcaption>
                             </figure>
                         </div>
-                        <div class="o-layout__item u-1-of-4-bp3">
+                        <div class="o-layout__item u-1-of-4-bp3 c-article__content">
                             <div class="u-max-width-sm">
                                 <p>
                                     As we refine our methods of responsive web design,* we’ve increasingly focus*ed on measure (another word for “line length”) and its relationship to how people read. The popularization of the “ideal measure” has led to advice such as “Increase font size for large screens and reduce font size for small screens.” While a good measure does improve the reading experience, it’s only one rule for good typography. Another rule is to maintain a comfortable font size.
@@ -410,6 +411,7 @@
                     </div>
                 </div>
             </div>
+        </article>
         </section>
     </body>
 </html>

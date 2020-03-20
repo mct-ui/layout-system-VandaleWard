@@ -324,10 +324,8 @@ a:focus {
   #COMPONENTS
 \*------------------------------------*/
 
-/*
-    Component: Component name
-    ---
-    Component description
+/* 
+    Components: Author
 */
 .c-author {
     display: flex;
@@ -352,7 +350,6 @@ a:focus {
 }
 
 .c-author__name{
-    color:black;
     font-size: 16px;
     line-height: 24px;
 }
@@ -362,6 +359,66 @@ a:focus {
     height: 56px;
     border-radius: 100%;
     margin-right: 16px;
+}
+
+
+/*
+    Components: Article
+*/
+
+.c-article__header,
+.c-article__body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.c-article__header {
+    padding: 24px 24px 0;
+}
+
+.c-article__body {
+    padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+    .c-article__header{
+        padding: 48px 48px 24px;
+    }
+
+    .c-article__author {
+        padding-bottom: 24px;
+    }
+
+    .c-article__body {
+        padding: 24px 48px;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-article__body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .c-article__author {
+        
+        width: 25%;
+        padding-right: 24px;
+    }
+
+    .c-article__content {
+        width: 75%;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-author{
+        display: block;
+    }
+
+    .c-author__image {
+        margin-bottom: 16px;
+    }
 }
 
 /*
