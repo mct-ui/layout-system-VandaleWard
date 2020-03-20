@@ -17,7 +17,13 @@ html {
     line-height: 1.5;
     font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
     color: #111;
-    box-sizing: border-box;
+    box-sizing:border-box;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
 }
 
 /*
@@ -173,38 +179,147 @@ a:focus {
     display: flow-root;
 }
 
-.o-row--grey-dark{
-    background-color: rgb(48, 48, 48);
+.o-row--dark {
+    padding: 24px 24px 0;
+    background-color: #131313;
     color: white;
 }
 
-.o-row--primary{
-    background-color: orange;
+.o-row--primary {
+    padding: 24px 24px 0;
+    background-color: #E85F01;
     color: white;
-}
-
-@media (min-width: 768px) {
-    .o-row--lg {
-        padding: 48px 48px 0;
-    }
 }
 
 .o-container {
     max-width: 90em;
-    margin: 0 auto;
-   }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-.o-layout{
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
+}
+
+.o-layout__item {
     flex-basis: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+    margin: 0 -12px;
 }
 
 .o-layout--gutter > .o-layout__item {
     padding: 0 12px;
 }
+
+.o-layout--gutter-sm {
+    margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+    padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+    padding: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+    padding: 0 24px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+    flex-direction: row;
+}
+
+.o-layout--justify-end{
+    flex-direction: row-reverse;
+}
+
+.o-layout--justify-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.o-layout--justify-space-around {
+    justify-content: space-around;
+
+}
+
+.o-layout--justify-space-between {
+    justify-content: space-between;
+}
+
+.o-layout--justify-space-evenly {
+    justify-content: spa;
+}
+
+/* Vertical item alignment modifiers */
+
+.o-layout--align-start {
+    align-items: flex-start;
+}
+
+.o-layout--align-end {
+    align-items: flex-end;
+}
+
+.o-layout--align-center {
+    align-items: center;
+}
+
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+/* Vertical content alignment modifiers. Only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+    align-content: start;
+}
+
+.o-layout--align-content-end {
+    align-content: end;
+}
+
+.o-layout--align-content-center {
+    align-content: center;
+}
+
+.o-layout--align-content-space-around {
+    align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+    align-content: space-between;
+}
+
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
@@ -213,6 +328,46 @@ a:focus {
     Component: Component name
     ---
     Component description
+*/
+.c-author {
+    display: flex;
+    align-items: center;
+}
+
+.c-author__image{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+}
+
+.c-author__name,
+.c-author__meta {
+    margin-bottom: 0;
+}
+
+.c-author__meta {
+    font-size: 14px;
+    font-family: "Inter Web", "Helvetica Neue", Helvetica, arial, sans-serif;
+    line-height: 24px;
+}
+
+.c-author__name{
+    color:black;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.c-author__image{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    margin-right: 16px;
+}
+
+/*
+    Component: layout block
+    ---
+    A small component to demonstrate the layout items
 */
 
 .c-layout-block {
@@ -228,6 +383,8 @@ a:focus {
     white-space: nowrap;
 }
 
+
+
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
@@ -235,28 +392,36 @@ a:focus {
 /*
     Utilities: max-width
     ---
-    Utility classes to put specific max widths onto elements
+    Utility classes to put specific max widths onto elements.
 */
 
 .u-max-width-sm {
-    max-width: 36em !important;
+    max-width: 36em;
 }
 
 .u-max-width-md {
-    max-width: 45em !important;
+    max-width: 45em;
 }
 
 .u-max-width-lg {
-    max-width: 60em !important;
+    max-width: 60em;
 }
 
 .u-max-width-xl {
-    max-width: 75em !important;
+    max-width: 75em;
 }
 
 .u-max-width-none {
-    max-width: none !important;
+    max-width: none;
 }
+
+/*
+    Utility: Utility name
+    ---
+    Utility description
+*/
+
+
 
 /*
     Utility: Flex
@@ -269,52 +434,80 @@ a:focus {
     flex-basis: auto !important;
 }
 
-.u-flex-grow-1 {
+.u-flex-grow-1{
     flex-grow: 1 !important;
 }
 
 .u-1-of-2 {
-    flex-basis: calc(100% / 2) !important;
+    flex-basis: calc(100%/2) !important;
 }
 
 .u-1-of-3 {
-    flex-basis: calc(100% / 3) !important;
+    flex-basis: calc(100%/3) !important;
 }
 
 .u-2-of-3 {
-    flex-basis: calc(100% / 3 * 2) !important;
+    flex-basis: calc(100%/3*2) !important;
 }
 
 .u-1-of-4 {
-    flex-basis: calc(100% / 4) !important;
+    flex-basis: calc(100%/4) !important;
 }
 
 .u-3-of-4 {
-    flex-basis: calc(100% / 4 * 3) !important;
+    flex-basis: calc(100%/4*3) !important;
 }
 
 .u-1-of-5 {
-    flex-basis: calc(100% / 5) !important;
+    flex-basis: calc(100%/5) !important;
 }
 
 .u-2-of-5 {
-    flex-basis: calc(100% / 5 * 2) !important;
+    flex-basis: calc(100%/5*2) !important;
 }
 
 .u-3-of-5 {
-    flex-basis: calc(100% / 5 * 3) !important;
+    flex-basis: calc(100%/5*3) !important;
 }
 
 .u-4-of-5 {
-    flex-basis: calc(100% / 5 * 4) !important;
+    flex-basis: calc(100%/5*4) !important;
 }
 
 .u-1-of-6 {
-    flex-basis: calc(100% / 6) !important;
+    flex-basis: calc(100%/6) !important;
 }
 
 .u-5-of-6 {
-    flex-basis: calc(100% / 6 * 5) !important;
+    flex-basis: calc(100%/6*5) !important;
+}
+
+.u-1-of-2-bp1 {
+    flex-basis: calc(100%/2) !important;
+}
+
+.u-1-of-2-bp2 {
+    flex-basis: calc(100%/2) !important;
+}
+
+.u-1-of-3-bp3 {
+    flex-basis: calc(100%/3) !important;
+}
+
+.u-1-of-4-bp4 {
+    flex-basis: calc(100%/4) !important;
+}
+
+.u-1-of-5-bp5 {
+    flex-basis: calc(100%/5) !important;
+}
+
+.u-1-of-6-bp6 {
+    flex-basis: calc(100%/6) !important;
+}
+
+.u-1-of-4-bp2 {
+    flex-basis: calc(100%/4) !important;
 }
 
 @media (min-width: 576px) {
@@ -357,9 +550,13 @@ a:focus {
 @media (min-width: 768px) {}
 */
 
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
+Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {
+    .o-row--lg{
+        padding: 48px 48px 0;
+    }
+}
+
 
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
